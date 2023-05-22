@@ -1,0 +1,54 @@
+@import "../../styles";
+
+.center {
+  min-height: 100vh;
+  @include center();
+
+  .container {
+    width: 400px;
+    max-width: 85vw;
+    background-color: $light-gray;
+    @include radius(0.5rem);
+    padding: 2rem 4rem;
+
+    & > h1 {
+      @include font(3rem, 600);
+      text-align: center;
+      color: $dark;
+      margin-bottom: 3rem;
+    }
+
+    & > form {
+      @include flex(column, stretch, flex-start, 0.8rem);
+
+      & > input {
+        padding: 0.8rem 1.6rem;
+        outline: none;
+        border: 1px solid rgba($color: $dark, $alpha: 0.3);
+        color: $dark;
+        @include font();
+
+        &:focus,
+        &:hover {
+          border-color: $link;
+        }
+
+        &[type="submit"] {
+          background-color: $link;
+          @include text($light, center, uppercase);
+          @include font(1.4rem, 500);
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+
+      & > span {
+        @include font();
+        color: $danger;
+      }
+    }
+  }
+}
